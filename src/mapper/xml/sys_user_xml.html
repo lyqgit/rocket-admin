@@ -1,0 +1,9 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "https://raw.githubusercontent.com/rbatis/rbatis/master/rbatis-codegen/mybatis-3-mapper.dtd">
+<mapper>
+    <update id="update_by_id_login_out">
+        ` update sys_user set token = '' where user_id = #{id}`
+    </update>
+    <select id="get_user_info_by_id">
+        ` select user_name,real_name,avatar from sys_user where user_id = #{id}`
+    </select>
+</mapper>

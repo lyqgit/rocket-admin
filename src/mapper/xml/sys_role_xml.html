@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "https://raw.githubusercontent.com/rbatis/rbatis/master/rbatis-codegen/mybatis-3-mapper.dtd">
+<mapper>
+    <select id="select_by_condition_page">
+        `select `
+
+        <if test="do_count == true">
+            `count(1) from sys_role`
+            <where>
+                <if test="name !=''">
+                    `role_name = #{name} `
+                </if>
+            </where>
+        </if>
+        <if test="do_count == false">
+            `* from sys_role `
+            <where>
+                <if test="name !=''">
+                    `role_name = #{name} `
+                </if>
+            </where>
+            ` limit ${page_no},${page_size}`
+        </if>
+    </select>
+</mapper>
